@@ -4,6 +4,7 @@ import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.Api.BaseApi;
 
 /**
+ * m层提供给p层的接口
  * Created by WZG on 2016/12/26.
  */
 

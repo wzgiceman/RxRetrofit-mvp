@@ -8,7 +8,7 @@ import com.wzgiceman.rxretrofitlibrary.retrofit_rx.Api.BaseApi;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.ApiException;
 
 /**
- * presenter两个接口，一个请求一个回调结果
+ * presenter两个接口，一个请求一个回调
  * 目的：确保Model层不直接操作View层
  * Created by WZG on 2016/12/26.
  */

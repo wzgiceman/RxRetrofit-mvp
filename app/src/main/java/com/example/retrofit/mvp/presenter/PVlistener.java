@@ -3,7 +3,7 @@ package com.example.retrofit.mvp.presenter;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.ApiException;
 
 /**
- * mvp 中p提供给m使用的接口
+ * mvp 中p层提供给m层使用的接口
  * Created by WZG on 2016/12/26.
  */
 
