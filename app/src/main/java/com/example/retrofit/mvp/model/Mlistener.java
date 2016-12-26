@@ -11,5 +11,8 @@ import com.wzgiceman.rxretrofitlibrary.retrofit_rx.listener.HttpOnNextListener;
 public interface Mlistener {/*
     * 开始任务
     * */
-    void onStart(RxAppCompatActivity rxAppCompatActivity, BaseApi baseApi, HttpOnNextListener pVlistener);
+    void startPost(RxAppCompatActivity rxAppCompatActivity, BaseApi baseApi, HttpOnNextListener pVlistener);
+
+    void testDo(String s);
+
 }

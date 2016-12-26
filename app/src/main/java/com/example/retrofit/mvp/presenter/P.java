@@ -14,7 +14,7 @@ import com.wzgiceman.rxretrofitlibrary.retrofit_rx.listener.HttpOnNextListener;
  * Created by WZG on 2016/12/26.
  */
 
-public class P implements Plistener ,HttpOnNextListener{
+public class P implements Plistener,PVlistener ,HttpOnNextListener{
 
     private Vlistener vlistener;
 
@@ -23,14 +23,26 @@ public class P implements Plistener ,HttpOnNextListener{
 
     public P(Vlistener viewListener) {
         this.vlistener = viewListener;
-        mlistener =new M();
+        mlistener =new M(this);
     }
 
     @Override
     public void startPost(RxAppCompatActivity rxAppCompatActivity, BaseApi baseApi) {
         vlistener.showProg();
-        mlistener.onStart(rxAppCompatActivity,baseApi,this);
+        mlistener.startPost(rxAppCompatActivity,baseApi,this);
     }
+
+    @Override
+    public void doTest(String msg) {
+        mlistener.testDo(msg);
+    }
+
+
+    @Override
+    public void testPSuc(String msg) {
+        vlistener.onTest(msg);
+    }
+
 
     @Override
     public void onNext(String resulte, String mothead) {
@@ -44,4 +56,6 @@ public class P implements Plistener ,HttpOnNextListener{
         vlistener.onError(e);
         vlistener.dismissProg();
     }
+
+
 }

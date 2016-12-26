@@ -16,4 +16,6 @@ public interface Vlistener {
 
     void  onError(ApiException e);
 
+    void onTest(String msg);
+
 }

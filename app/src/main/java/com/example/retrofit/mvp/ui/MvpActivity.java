@@ -12,7 +12,7 @@ import com.example.retrofit.mvp.presenter.P;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.ApiException;
 
 public class MvpActivity extends BaseActivity implements Vlistener {
-    TextView tvMsg;
+    TextView tvMsg,tvTest;
     Plistener plistener;
 
     @Override
@@ -20,8 +20,18 @@ public class MvpActivity extends BaseActivity implements Vlistener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mvp);
 
-        plistener = new P(this);
+        tvTest=(TextView)findViewById(R.id.tv_test);
 
+
+        tvTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                plistener.doTest("1");
+            }
+        });
+
+
+        plistener = new P(this);
         tvMsg = (TextView) findViewById(R.id.tv_msg);
         tvMsg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +61,11 @@ public class MvpActivity extends BaseActivity implements Vlistener {
     @Override
     public void onError(ApiException e) {
         tvMsg.setText("错误信息:" + e.getMessage() + "------" + e.getCode());
+    }
+
+    @Override
+    public void onTest(String msg) {
+        tvTest.setText("测试返回数据了："+msg);
     }
 
 }
