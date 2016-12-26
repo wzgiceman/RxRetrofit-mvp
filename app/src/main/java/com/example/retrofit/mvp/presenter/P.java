@@ -55,6 +55,4 @@ public class P implements Plistener,PVlistener{
         vlistener.onError(e);
         vlistener.dismissProg();
     }
-
-
 }

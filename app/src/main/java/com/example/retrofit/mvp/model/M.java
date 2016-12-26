@@ -8,12 +8,11 @@ import com.wzgiceman.rxretrofitlibrary.retrofit_rx.http.HttpManager;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.listener.HttpOnNextListener;
 
 /**
+ * m层数据处理
  * Created by WZG on 2016/12/26.
  */
 
 public class M implements Mlistener, HttpOnNextListener {
-
-
     private PVlistener pVlistener;
 
     public M(PVlistener pVlistener) {

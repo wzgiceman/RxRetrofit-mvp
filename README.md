@@ -1,4 +1,4 @@
-## Rxjava+ReTrofit+okHttp深入浅出-终极封装特殊篇（替换Gson返回）
+## RxRetrofit结合Mvp使用案例
 
 ##介绍
 
@@ -31,98 +31,9 @@
 ##效果
 ![Preview](https://github.com/wzgiceman/RxjavaRetrofitDemo-string-master/blob/master/gif/retrofit_string.gif)
 
+##用法
 
-##使用
-
-###1.初始化
-
-moudel导入工程
-
-```java
-  compile project(':rxretrofitlibrary')
-```
-
-在Application中初始化RxRetrofitApp
-
-```java
- RxRetrofitApp.init(this);
-```
-
-###2.初始化HttpManager
-
-需要传递一个回调HttpOnNextListener接口和activity生命周期
-
-```java
-  HttpManager manager=new HttpManager(this,this);
-```
-
-###3.初始请求的数据和参数
-
-```java
-public class SubjectPostApi extends BaseApi {
-//    接口需要传入的参数 可自定义不同类型
-    private boolean all;
-    /*任何你先要传递的参数*/
-//    String xxxxx;
-
-    /**
-     * 默认初始化需要给定回调和rx周期类
-     * 可以额外设置请求设置加载框显示，回调等（可扩展）
-     */
-    public SubjectPostApi() {
-        setShowProgress(true);
-        setCancel(true);
-        setCache(true);
-        setMothed("AppFiftyToneGraph/videoLink");
-        setCookieNetWorkTime(60);
-        setCookieNoNetWorkTime(24*60*60);
-    }
-
-    /**
-    *通过自定义sercie得到Observable对象
-    *sercie可动态设置，方便扩展
-    */
-    @Override
-    public Observable getObservable(Retrofit retrofit) {
-        HttpPostService httpService = retrofit.create(HttpPostService.class);
-        return httpService.getAllVedioBy(isAll());
-    }
-  }
-
-```
-###4.请求后的统一处理
-
-通过method参数判断接口，然后动态解析返回的数据
-```java
-    @Override
-    public void onNext(String resulte, String method) {
-        /*post返回处理*/
-        if(method.equals(postEntity.getMothed())){
-            List<SubjectResulte>  subjectResulte= JSONObject.parseArray(resulte,SubjectResulte.class);
-            tvMsg.setText("post返回：\n"+subjectResulte.toString() );
-        }
-
-        /*上传返回处理*/
-        if(method.equals(uplaodApi.getMothed())){
-            UploadResulte uploadResulte=JSONObject.parseObject(resulte,UploadResulte.class);
-            tvMsg.setText("上传成功返回：\n"+uploadResulte.getHeadImgUrl());
-            Glide.with(MainActivity.this).load(uploadResulte.getHeadImgUrl()).skipMemoryCache(true).into(img);
-        }
-    }
-
-    @Override
-    public void onError(Throwable e) {
-        tvMsg.setText("失败：\n" + e.toString());
-    }
-```
-
-
-* 初始化一个请求数据的对象继承BaseApi对象设置请求需要的参数
-* 通过httpmanger对象，触发请求
-* 结果统一通过BaseApi中的fun1方法判断，最后返回HttpOnNextListener
-
-
-
+请下载demo查看
 
 #                                     QQ交流群
 
