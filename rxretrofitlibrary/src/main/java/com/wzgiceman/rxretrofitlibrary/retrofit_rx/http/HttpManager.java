@@ -52,7 +52,7 @@ public class HttpManager {
                 .baseUrl(basePar.getBaseUrl())
                 .build();
         /*rx处理*/
-        ProgressSubscriber subscriber = new ProgressSubscriber(basePar, onNextListener, appCompatActivity);
+        ProgressSubscriber subscriber = new ProgressSubscriber(basePar, onNextListener);
         Observable observable = basePar.getObservable(retrofit)
                 /*失败后的retry配置*/
                 .retryWhen(new RetryWhenNetworkException())

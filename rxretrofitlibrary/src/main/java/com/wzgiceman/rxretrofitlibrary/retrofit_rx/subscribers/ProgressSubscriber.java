@@ -1,7 +1,5 @@
 package com.wzgiceman.rxretrofitlibrary.retrofit_rx.subscribers;
 
-import android.content.Context;
-
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.Api.BaseApi;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.RxRetrofitApp;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.ApiException;
@@ -35,8 +33,7 @@ public class ProgressSubscriber<T> extends Subscriber<T> {
      *
      * @param api
      */
-    public ProgressSubscriber(BaseApi api, SoftReference<HttpOnNextListener> listenerSoftReference, SoftReference<Context>
-            mActivity) {
+    public ProgressSubscriber(BaseApi api, SoftReference<HttpOnNextListener> listenerSoftReference) {
         this.api = api;
         this.mSubscriberOnNextListener = listenerSoftReference;
     }
