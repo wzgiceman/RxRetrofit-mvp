@@ -13,39 +13,34 @@ import com.wzgiceman.rxretrofitlibrary.retrofit_rx.listener.HttpOnNextListener;
 
 public class M implements Mlistener, HttpOnNextListener {
 
-    PVlistener pVlistener;
+
+    private PVlistener pVlistener;
 
     public M(PVlistener pVlistener) {
         this.pVlistener = pVlistener;
     }
 
-    /*view回调 -其实这里完全可以直接将此传入到HttpManager中，但是违背了mvp设计理念，自行考虑*/
-    private HttpOnNextListener pOnNextListener;
-
     @Override
-    public void startPost(RxAppCompatActivity rxAppCompatActivity, BaseApi baseApi, HttpOnNextListener onNextListener) {
+    public void startPost(RxAppCompatActivity rxAppCompatActivity, BaseApi baseApi) {
         HttpManager manager = new HttpManager(this, rxAppCompatActivity);
-//        这样也是可以的
-//        HttpManager manager=new HttpManager(onNextListener,rxAppCompatActivity);
         manager.doHttpDeal(baseApi);
-        this.pOnNextListener = onNextListener;
     }
 
     @Override
     public void testDo(String s) {
-        String msg="M"+s;
+        String msg = "M" + s;
         pVlistener.testPSuc(msg);
     }
 
 
     @Override
     public void onNext(String resulte, String mothead) {
-        pOnNextListener.onNext(resulte, mothead);
+        pVlistener.onNext(resulte, mothead);
     }
 
     @Override
     public void onError(ApiException e) {
-        pOnNextListener.onError(e);
+        pVlistener.onError(e);
     }
 
 }

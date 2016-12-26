@@ -6,7 +6,6 @@ import com.example.retrofit.mvp.ui.Vlistener;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.Api.BaseApi;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.ApiException;
-import com.wzgiceman.rxretrofitlibrary.retrofit_rx.listener.HttpOnNextListener;
 
 /**
  * presenter两个接口，一个请求一个回调结果
@@ -14,7 +13,7 @@ import com.wzgiceman.rxretrofitlibrary.retrofit_rx.listener.HttpOnNextListener;
  * Created by WZG on 2016/12/26.
  */
 
-public class P implements Plistener,PVlistener ,HttpOnNextListener{
+public class P implements Plistener,PVlistener{
 
     private Vlistener vlistener;
 
@@ -29,7 +28,7 @@ public class P implements Plistener,PVlistener ,HttpOnNextListener{
     @Override
     public void startPost(RxAppCompatActivity rxAppCompatActivity, BaseApi baseApi) {
         vlistener.showProg();
-        mlistener.startPost(rxAppCompatActivity,baseApi,this);
+        mlistener.startPost(rxAppCompatActivity,baseApi);
     }
 
     @Override
