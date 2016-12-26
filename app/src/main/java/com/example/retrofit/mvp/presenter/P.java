@@ -39,7 +39,7 @@ public class P implements Plistener,PVlistener{
 
     @Override
     public void testPSuc(String msg) {
-        vlistener.onTest(msg);
+        vlistener.onTestNext(msg);
     }
 
 

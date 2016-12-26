@@ -64,7 +64,7 @@ public class MvpActivity extends BaseActivity implements Vlistener {
     }
 
     @Override
-    public void onTest(String msg) {
+    public void onTestNext(String msg) {
         tvTest.setText("测试返回数据了："+msg);
     }
 
