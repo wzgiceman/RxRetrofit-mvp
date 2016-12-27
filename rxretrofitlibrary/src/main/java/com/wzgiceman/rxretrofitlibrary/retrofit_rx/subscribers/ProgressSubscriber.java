@@ -14,6 +14,7 @@ import java.lang.ref.SoftReference;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.Subscription;
 
 /**
  *
@@ -21,7 +22,7 @@ import rx.Subscriber;
  * 异常回调
  * Created by WZG on 2016/7/16.
  */
-public class ProgressSubscriber<T> extends Subscriber<T> {
+public class ProgressSubscriber<T> extends Subscriber<T> implements Subscription {
     //    回调接口
     private SoftReference<HttpOnNextListener> mSubscriberOnNextListener;
     /*请求数据*/
@@ -62,11 +63,10 @@ public class ProgressSubscriber<T> extends Subscriber<T> {
         }
     }
 
-    /**
-     * 完成，隐藏ProgressDialog
-     */
+
     @Override
     public void onCompleted() {
+
     }
 
     /**
@@ -165,5 +165,9 @@ public class ProgressSubscriber<T> extends Subscriber<T> {
             mSubscriberOnNextListener.get().onNext((String) t, api.getMothed());
         }
     }
+
+
+
+
 
 }

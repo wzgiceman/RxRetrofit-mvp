@@ -1,6 +1,7 @@
 package com.example.retrofit.mvp.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -52,6 +53,7 @@ public class MvpActivity extends BaseActivity implements Vlistener {
 
     @Override
     public void dismissProg() {
+        Log.e("tag","--->dismiss");
         dismissP();
     }
 
@@ -68,6 +70,12 @@ public class MvpActivity extends BaseActivity implements Vlistener {
     @Override
     public void onTestNext(String msg) {
         tvTest.setText("测试返回数据了：" + msg);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        dismissProg();
     }
 
 }

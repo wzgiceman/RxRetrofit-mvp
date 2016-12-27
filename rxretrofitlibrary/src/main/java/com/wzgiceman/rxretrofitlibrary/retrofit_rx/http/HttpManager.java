@@ -1,5 +1,6 @@
 package com.wzgiceman.rxretrofitlibrary.retrofit_rx.http;
 
+import com.trello.rxlifecycle.android.ActivityEvent;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.Api.BaseApi;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.FactoryException;
@@ -60,7 +61,8 @@ public class HttpManager {
                 /*异常处理*/
                 .onErrorResumeNext(funcException)
                 /*生命周期管理*/
-                .compose(appCompatActivity.get().bindToLifecycle())
+//                .compose(appCompatActivity.get().bindToLifecycle())
+                .compose(appCompatActivity.get().bindUntilEvent(ActivityEvent.DESTROY))
                 /*http请求线程*/
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())

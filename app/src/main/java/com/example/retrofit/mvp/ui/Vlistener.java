@@ -8,6 +8,8 @@ import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.ApiException;
 
 public interface Vlistener {
 
+    void onTestNext(String msg);
+
     void showProg();
 
     void dismissProg();
@@ -15,7 +17,5 @@ public interface Vlistener {
     void onNext(String s,String m);
 
     void  onError(ApiException e);
-
-    void onTestNext(String msg);
 
 }
