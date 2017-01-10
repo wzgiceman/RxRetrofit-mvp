@@ -28,12 +28,16 @@
         10.Cache数据持久化和数据库（greenDao）两种缓存机制
         11.异常统一处理
 
-##效果
+## 效果
 ![Preview](https://github.com/wzgiceman/RxjavaRetrofitDemo-string-master/blob/master/gif/retrofit_string.gif)
 
-##用法
+## 用法
 
-请下载demo查看
+详细用法请下载demo查看
+
+## 实现原理
+
+[RxJava+Retrofit+OkHttp深入浅出-mvp（使用篇）](http://blog.csdn.net/wzgiceman/article/details/53886435)
 
 #                                     QQ交流群
 
