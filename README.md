@@ -37,10 +37,10 @@
 
 ## 实现原理
 
-[RxJava+Retrofit+OkHttp深入浅出-mvp（使用篇）](http://blog.csdn.net/wzgiceman/article/details/53886435)
+>[RxJava+Retrofit+OkHttp深入浅出-mvp（使用篇）](http://blog.csdn.net/wzgiceman/article/details/53886435)
 
-#                                     QQ交流群
+##QQ交流群
 
-![](https://github.com/wzgiceman/Rxbus/blob/master/gif/qq.png)
+>[聊聊人生，谈谈梦想，交流技术，你可以在这里找到我](https://github.com/wzgiceman/Rxbus/blob/master/gif/qq.png)
 
 
